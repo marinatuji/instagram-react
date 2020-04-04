@@ -1,8 +1,8 @@
 import React from 'react';
-import './App.scss';
 import Topbar from './components/Topbar';
-import Stories from './components/Stories';
 import Feed from './components/Feed';
+import Loading from './components/Loading';
+import './App.scss';
 
 // Pensar nos estados -- ok
 // Pegar a lista de usuários --ok
@@ -17,6 +17,7 @@ class App extends React.Component {
     this.state = {
       users: [],
       posts: [],
+      loading: true,
       usersFetched: 0,
     }
   }
@@ -31,6 +32,7 @@ class App extends React.Component {
 
   componentDidUpdate() {
     const { users, posts, usersFetched } = this.state;
+    console.log(users);
 
     if (usersFetched === users.length) {
       return;
@@ -41,19 +43,22 @@ class App extends React.Component {
       .then(dados => this.setState({
         posts: [...posts, ...dados],
         usersFetched: usersFetched + 1,
+        loading: false,
       }))
   }
 
   render() {
-    const { users, posts } = this.state;
-
-    console.log(posts);
+    const { users, posts, loading } = this.state;
 
     return (
       <React.Fragment>
         <Topbar />
 
-        <Feed posts={posts} />
+        { loading
+          ? <Loading />
+          : <Feed posts={posts} />
+        }
+
       </React.Fragment>
     )
   }
