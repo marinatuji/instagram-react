@@ -11,16 +11,19 @@ class Post extends React.Component {
 
   render() {
     const { like } = this.state;
+    const { infoPost, infoUsuario } = this.props;
+
+    console.log({ infoPost, infoUsuario });
 
     return (
       <article className="post">
         <header className="post__header">
           <div className="user">
             <a href="#" className="user__thumb">
-              <img src="assets/img/profiles/yoda/yoda-profile.jpg" alt="" />
+              <img src={infoUsuario.avatar} alt={infoUsuario.name} />
             </a>
 
-            <a href="#" className="user__name">Mestre Yoda</a>
+            <a href="#" className="user__name">{infoUsuario.name}</a>
           </div>
 
           <button className="post__context">
@@ -29,7 +32,7 @@ class Post extends React.Component {
         </header>
 
         <figure className="post__figure">
-          <img src="assets/img/profiles/yoda/yoda-1.jpg" alt="" />
+          <img src={infoPost.imageUrl} alt="" />
         </figure>
 
         <nav className="post__controls">

@@ -32,7 +32,6 @@ class App extends React.Component {
 
   componentDidUpdate() {
     const { users, posts, usersFetched } = this.state;
-    console.log(users);
 
     if (usersFetched === users.length) {
       return;
@@ -56,7 +55,7 @@ class App extends React.Component {
 
         { loading
           ? <Loading />
-          : <Feed posts={posts} />
+          : <Feed posts={posts} users={users} />
         }
 
       </React.Fragment>
