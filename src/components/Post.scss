@@ -1,7 +1,7 @@
 .post {
   background-color: white;
   border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, .1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -59,6 +59,7 @@
 .post__control {
   font-size: 2.4rem;
   margin: 0 8px;
+  position: relative;
 }
 
 .post__control:last-of-type {
@@ -86,4 +87,21 @@
   height: 30px;
   width: 30px;
   margin-right: 8px;
+}
+
+.comments__counter {
+  align-items: center;
+  background-color: red;
+  border-radius: 50px;
+  color: white;
+  display: flex;
+  font-size: 10px;
+  font-weight: bold;
+  height: 20px;
+  justify-content: center;
+  overflow: hidden;
+  position: absolute;
+  right: -2px;
+  top: -2px;
+  width: 20px;
 }

@@ -5,15 +5,13 @@ class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      like: false,
-    }
+      like: false
+    };
   }
 
   render() {
     const { like } = this.state;
     const { infoPost, infoUsuario } = this.props;
-
-    console.log({ infoPost, infoUsuario });
 
     return (
       <article className="post">
@@ -23,7 +21,9 @@ class Post extends React.Component {
               <img src={infoUsuario.avatar} alt={infoUsuario.name} />
             </a>
 
-            <a href="#" className="user__name">{infoUsuario.name}</a>
+            <a href="#" className="user__name">
+              {infoUsuario.name}
+            </a>
           </div>
 
           <button className="post__context">
@@ -40,14 +40,18 @@ class Post extends React.Component {
             className="post__control"
             onClick={() => this.setState({ like: !like })}
           >
-            { like
-              ? <i className="fas fa-heart" />
-              : <i className="far fa-heart" />
-            }
+            {like ? (
+              <i className="fas fa-heart" />
+            ) : (
+              <i className="far fa-heart" />
+            )}
           </button>
 
           <button className="post__control">
             <i className="far fa-comment" />
+            <span className="comments__counter">
+              {infoPost.comments.length}
+            </span>
           </button>
 
           <button className="post__control">
@@ -55,19 +59,22 @@ class Post extends React.Component {
           </button>
         </nav>
 
-        <div className="post__status">
-          <div className="user">
-            <a href="#" className="user__thumb">
-              <img src="assets/img/profiles/domino/domino-profile.jpg" alt=""/>
-            </a>
+        {infoPost.comments.length > 0 && (
+          <div className="post__status">
+            <div className="user">
+              <a href="#" className="user__thumb">
+                <img src={infoPost.comments[0].avatar} alt="" />
+              </a>
 
-            <span>
-              curtido por <a href="#">Domino</a> e outras <a href="#">7 pessoas</a>
-            </span>
+              <span>
+                comentado por <a href="#">{infoPost.comments[0].name}</a> e
+                outras <a href="#">{infoPost.comments.length - 1} pessoas</a>
+              </span>
+            </div>
           </div>
-        </div>
+        )}
       </article>
-    )
+    );
   }
 }
 

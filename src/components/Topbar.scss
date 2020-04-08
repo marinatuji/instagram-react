@@ -6,7 +6,8 @@
   position: fixed;
   top: 0;
   width: 100%;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  z-index: 9999;
 }
 
 .topbar .container {
@@ -23,6 +24,20 @@
   height: 100%;
 }
 
-.topbar__icon {
+.topbar__group {
+  display: flex;
+}
+
+.topbar__icon,
+.topbar__icon a {
   font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+
+  span {
+    font-size: 1.1rem;
+  }
 }
