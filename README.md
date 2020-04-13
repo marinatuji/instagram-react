@@ -1,3 +1,6 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1f4c217d-44ef-4de0-888c-0e8b22b42081/deploy-status)](https://app.netlify.com/sites/codenation-instadev-tuji/deploys)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
